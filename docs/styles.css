@@ -1,17 +1,14 @@
 :root {
   --clr-txt: black;
-  --fade-time: .3s;
+  --clr-bg: white;
+  --clr-shade: rgb(from var(--clr-txt) calc(r + 100) calc(g + 100) calc(b + 100));
+  --fade-time: 150ms;
   --time: 3s;
 }
 *,
   *::before,
   *::after {
     box-sizing: border-box;
-}
-* {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
 }
 html:focus-within {
   scroll-behavior: smooth;
@@ -33,19 +30,68 @@ h1 {
 h1, .subtitle {
   text-align: center;
 }
-li {
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul, li {
+  list-style-position: revert-layer;
+}
+.log {
   position: relative;
+  border-left: .15ch var(--clr-txt) solid;
+  padding-left: 2ch;
+}
+.log::before {
+  content: '';
+  position: absolute;
+  aspect-ratio: 1;
+  left: -.5ch;
+  top: 0;
+  width: 1ch;
+  background: var(--clr-txt);
+  border-radius: 50%;
+  transform: translateY(100%);
 }
 .log .date {
+  color: rgb(134, 134, 134);
   position: absolute;
-  left: 0;
+  left: -8rem;
+}
+#log {
+  width: fit-content;
+  margin-inline: auto;
+}
+footer {
+  width: fit-content;
+  margin-inline: auto;
+}
+button {
+  background: var(--clr-txt);
+  color: var(--clr-bg);
+  padding: 1.4ch 3ch;
+  border-radius: .25rem;
+  border-color: transparent;
+  cursor: pointer;
+  transition: box-shadow var(--fade-time) ease-in-out;
+}
+button:hover, button:focus-within {
+  box-shadow: 0 .25ch 1ch var(--clr-txt);
+}
+@supports (display: grid) {
+  body {
+    margin: 10rem;
+    height: calc(100svh - 20rem);
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
+    place-items: center;
+  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    text-shadow: 1px 1px .8rem white;
-    background-color: black;
-  }
-  body {
-    background: rgba(10, 10, 10, .8);
+    --clr-bg: black;
+    --clr-txt: white;
+    --clr-shade: rgb(from var(--clr-txt) calc(r - 100) calc(g - 100) calc(b - 100));
+    text-shadow: 1px 1px .8rem var(--clr-bg);
   }
 }
