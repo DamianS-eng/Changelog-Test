@@ -86,6 +86,12 @@ button:hover, button:focus-within {
     grid-template-rows: 4rem 1fr 4rem;
     place-items: center;
   }
+  @media (orientation: landscape) {
+    body {
+      margin: 0;
+      height: 100vmin;
+    }
+  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
