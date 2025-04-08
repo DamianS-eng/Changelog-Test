@@ -34,10 +34,8 @@ window.onload = function() {
   if(logSection && logList.length > 0) {
     let dateOrder = logList.sort((a, b) => new Date(b.date) - new Date(a.date));
     //let chronilogicalOrder = logList.sort((a, b) => new Date(a.date) - new Date(b.date));
-    //create unordered list
-    //append ordered as li of log and span of date
+    const injul = document.createElement("ul");
     dateOrder.forEach((l) => {
-      console.log(l);
       const liEle = document.createElement("li");
       const liDate = document.createElement("span");
       liEle.classList.add('log');
@@ -45,7 +43,8 @@ window.onload = function() {
       liEle.innerHTML = l.log;
       liDate.innerHTML = l.date;
       liEle.appendChild(liDate);
-      logSection.append(liEle);
+      injul.appendChild(liEle);
     });
+    logSection.append(injul);
   }
 };
