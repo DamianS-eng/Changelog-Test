@@ -1,4 +1,4 @@
-const logSection = document.querySelector("log");
+const logSection = document.querySelector("#log");
 
 const logList = [
   {
