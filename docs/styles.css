@@ -24,6 +24,22 @@ body > * {
   color: var(--clr-txt);
   background-color: var(--clr-bg);
 }
+h1 {
+  font-size: 2rem;
+}
+.subtitle {
+  font-size: .9rem;
+}
+h1, .subtitle {
+  text-align: center;
+}
+li {
+  position: relative;
+}
+.log .date {
+  position: absolute;
+  left: 0;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     text-shadow: 1px 1px .8rem white;
