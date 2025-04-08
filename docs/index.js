@@ -30,19 +30,22 @@ const logList = [
     log: 'Changelog page for the consumer'
   }
 ]
-function getOrderedDateList() {
-  logList.sort((a, b) => new Date(a.date) - new Date(b.date));
-  let output = [];
-  logList.forEach((obj) => {
-    
-  });
-  return output;
-}
 window.onload = function() {
   if(logSection && logList.length > 0) {
-    let dateOrder = logList.sort((a, b) => new Date(a.date) - new Date(b.date));
+    let dateOrder = logList.sort((a, b) => new Date(b.date) - new Date(a.date));
+    //let chronilogicalOrder = logList.sort((a, b) => new Date(a.date) - new Date(b.date));
+    //create unordered list
+    //append ordered as li of log and span of date
     dateOrder.forEach((l) => {
       console.log(l);
+      const liEle = document.createElement("li");
+      const liDate = document.createElement("span");
+      liEle.classList.add('log');
+      liDate.classList.add('date');
+      liEle.innerHTML = l.log;
+      liDate.innerHTML = l.date;
+      liEle.appendChild(liDate);
+      logSection.append(liEle);
     });
   }
 };
