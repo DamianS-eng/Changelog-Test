@@ -84,9 +84,9 @@ button:hover, button:focus-within {
     display: grid;
   }
   body {
-    margin: 10rem;
-    height: calc(100svh - 20rem);
-    grid-template-rows: 4rem 1fr 4rem;
+    height: calc(100svh - 1rem);
+    margin: auto;
+    grid-template-rows: 4rem min(fit-content, 1fr) 4rem;
     place-items: center;
   }
   ul {
