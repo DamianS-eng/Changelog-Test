@@ -37,26 +37,27 @@ ul {
 ul, li {
   list-style-position: revert-layer;
 }
-.log {
+ul .log {
+  display: inline;
   position: relative;
   border-left: .15ch var(--clr-txt) solid;
   padding-left: 2ch;
 }
+ul .date {
+  display: inline-block;
+  color: rgb(134, 134, 134);
+  width: 12ch;
+}
 .log::before {
   content: '';
   position: absolute;
-  aspect-ratio: 1;
-  left: -.5ch;
-  top: 0;
   width: 1ch;
+  aspect-ratio: 1;
+  left: -.55ch;
+  top: 0;
   background: var(--clr-txt);
   border-radius: 50%;
-  transform: translateY(100%);
-}
-.log .date {
-  color: rgb(134, 134, 134);
-  position: absolute;
-  left: -8rem;
+  transform: translateY(55%);
 }
 #log {
   width: fit-content;
@@ -79,12 +80,20 @@ button:hover, button:focus-within {
   box-shadow: 0 .25ch 1ch var(--clr-txt);
 }
 @supports (display: grid) {
+  body, ul {
+    display: grid;
+  }
   body {
     margin: 10rem;
     height: calc(100svh - 20rem);
-    display: grid;
     grid-template-rows: 4rem 1fr 4rem;
     place-items: center;
+  }
+  ul {
+    grid-template-columns: 12ch 1fr;
+  }
+  .log::before {
+     transform: translateY(100%);
   }
   @media (orientation: landscape) {
     body {
