@@ -43,7 +43,7 @@ window.onload = function() {
       liEle.innerHTML = l.log;
       const lineBreak = document.createElement('br');
       liDate.innerHTML = l.date;
-      liDate.appendChild(lineBreak);
+      liEle.appendChild(lineBreak);
       injul.appendChild(liDate);
       injul.appendChild(liEle);
     });
