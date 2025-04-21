@@ -41,8 +41,10 @@ window.onload = function() {
       liEle.classList.add('log');
       liDate.classList.add('date');
       liEle.innerHTML = l.log;
+      const lineBreak = document.createElement('br');
       liDate.innerHTML = l.date;
-      liEle.appendChild(liDate);
+      liDate.appendChild(lineBreak);
+      lnjul.appendChild(liDate);
       injul.appendChild(liEle);
     });
     logSection.append(injul);
