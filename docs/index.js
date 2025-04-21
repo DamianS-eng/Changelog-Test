@@ -44,7 +44,7 @@ window.onload = function() {
       const lineBreak = document.createElement('br');
       liDate.innerHTML = l.date;
       liDate.appendChild(lineBreak);
-      lnjul.appendChild(liDate);
+      injul.appendChild(liDate);
       injul.appendChild(liEle);
     });
     logSection.append(injul);
